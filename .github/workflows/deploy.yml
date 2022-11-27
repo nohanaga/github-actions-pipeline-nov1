@@ -33,4 +33,4 @@ jobs:
           instance_count: 1
           EOS
       - name: Trigger AML Pipeline Job
-        run: az ml online-deployment create -f 03_managed_deployment.yml -g ${{secrets.AZURE_RESOURCE_GROUP_NAME}} -w ${{secrets.AZURE_ML_WORKSPACE_NAME}} --all-traffic
+        run: az ml online-deployment create -f 03_managed_deployment.yml -g ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} -w ${{ secrets.AZURE_ML_WORKSPACE_NAME }} --all-traffic
