@@ -15,7 +15,7 @@ jobs:
         with:
           creds: '${{secrets.AZURE_CREDENTIALS}}'
       - name: Install ML extension for az command
-        run: az extension add --name ml --version 2.4.1
+        run: az extension add --name ml --version 2.10.0
       - name: Make Managed Deployment YAML
         run: |
           cat << EOS > 03_managed_deployment.yml
