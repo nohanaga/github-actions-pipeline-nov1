@@ -15,7 +15,7 @@ jobs:
         with:
           creds: '${{secrets.AZURE_CREDENTIALS}}'
       - name: Install ML extension for az command
-        run: az extension add --name ml --version 2.10.0
+        run: az extension add --name ml --version 2.4.1
       - name: Trigger Azure Machine Learning Pipeline Job
         run: |
           az ml job create --file 04_training_pipeline_job.yml -g ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} -w ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
