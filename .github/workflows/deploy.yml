@@ -15,7 +15,7 @@ jobs:
         with:
           creds: '${{secrets.AZURE_CREDENTIALS}}'
       - name: Install ML extension for az command
-        run: az extension add --name ml --version 2.4.1
+        run: az extension add --name ml --version 2.10.0
       - name: Make Managed Deployment YAML
         run: |
           cat << EOS > 03_managed_deployment.yml
@@ -33,4 +33,4 @@ jobs:
           instance_count: 1
           EOS
       - name: Trigger AML Pipeline Job
-        run: az ml online-deployment create -f 03_managed_deployment.yml -g ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} -w ${{ secrets.AZURE_ML_WORKSPACE_NAME }} --all-traffic
+        run: az ml online-deployment update -f 03_managed_deployment.yml -g ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} -w ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
