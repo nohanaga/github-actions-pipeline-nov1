@@ -21,7 +21,7 @@ jobs:
           cat << EOS > 03_managed_deployment.yml
           \$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
           name: blue
-          endpoint_name: endpoint1
+          endpoint_name: hanagasaki-endpoint1
           model: azureml:${{github.event.client_payload.model_name}}:${{github.event.client_payload.model_version}}
           code_configuration:
             code: ./scripts
