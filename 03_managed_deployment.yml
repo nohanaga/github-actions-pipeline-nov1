@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
 endpoint_name: hanagasaki-endpoint1
-model: azureml:${{github.event.client_payload.model_name}}:${{github.event.client_payload.model_version}}
+model: azureml:modelName:modelVersion
 code_configuration:
   code: ./scripts
   scoring_script: score.py
