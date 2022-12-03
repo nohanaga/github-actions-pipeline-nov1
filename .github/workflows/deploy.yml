@@ -17,5 +17,7 @@ jobs:
           creds: '${{secrets.AZURE_CREDENTIALS}}'
       - name: Install ML extension for az command
         run: az extension add --name ml --version 2.10.0
+      - name: Replace modelName and modelVersion in YAML
+        run: yq -i '.model = "azureml:${{github.event.client_payload.model_name}}:${{github.event.client_payload.model_version}}"' 03_managed_deployment.yml
       - name: Trigger AML Pipeline Job
         run: az ml online-deployment update -f 03_managed_deployment.yml -g ${{ secrets.AZURE_RESOURCE_GROUP_NAME }} -w ${{ secrets.AZURE_ML_WORKSPACE_NAME }}
